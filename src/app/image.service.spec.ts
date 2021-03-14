@@ -32,6 +32,11 @@ describe('ImageService', () => {
       expect(imagene).toEqual(undefined);
  
     });
+
+    it('debe retornar indefinido si se busca una imagen con id negativo', () => {
+      let imagene1 = service.getImage(-20);
+      expect(imagene1).toEqual(undefined);  
+    });
   
     
     it('debe retornar indefinido si se busca una imagen con id decimal', () => {
@@ -44,6 +49,11 @@ describe('ImageService', () => {
     it(" Si el usuario escoje perro, se deben traer las imágenes asignadas a los perros. ", () => {
       let perros = service.getImageBrand("perro");
       expect(perros.brand).toBe("perro")   
+    });
+
+    it(" Si el usuario escoje gato, se deben traer las imágenes asignadas a los gatos. ", () => {
+      let gatos = service.getImageBrand("gato");
+      expect(gatos.brand).toBe("gato")   
     });
     
   });
