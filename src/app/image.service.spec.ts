@@ -8,7 +8,7 @@ describe('ImageService', () => {
     service = new ImageService();
   });
 
-    it('should be created', () => {
+    it('debe crear el servicio', () => {
     expect(service).toBeTruthy();
     });
   describe('getImages', () =>{ 
