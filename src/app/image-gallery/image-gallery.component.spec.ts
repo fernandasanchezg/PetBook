@@ -32,10 +32,16 @@ xdescribe('ImageGalleryComponent', () => {
     expect(component).toBeTruthy();
   });
 
-   it('Componente creado', () => {
+   it('Todas las imagenes son perro', () => {
      //Sin terminar
-    component.ngOnChanges();
-    expect(component.filterBy).toBeTruthy();
+     component.filterBy = 'perro';
+     component.ngOnChanges();
+     //FOR allimages
+     // expect(imagen.brand).toBe("perro"); 
+     //ENDFOR
+     for (let imagen of component.allImages){
+      expect(imagen.brand).toBe("perro"); 
+     }
   });
 
 });
