@@ -27,6 +27,12 @@ xdescribe('AppComponent', () => {
     expect(app.title).toEqual('pet-book');
   });
 
+  it('Se debe cambiar el título para "perros"', () => {
+    app.title  = 'perros';
+    expect(app.title).toEqual('perros');
+  });
+
+
  xit('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
