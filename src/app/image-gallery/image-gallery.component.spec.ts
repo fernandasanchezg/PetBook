@@ -3,7 +3,8 @@ import { ImageService } from '../image.service';
 
 import { GalleryComponent } from './image-gallery.component';
 
-describe('ImageGalleryComponent', () => {
+
+xdescribe('ImageGalleryComponent', () => {
 /*   let component: GalleryComponent;
   let fixture: ComponentFixture<GalleryComponent>;
 
@@ -13,7 +14,6 @@ describe('ImageGalleryComponent', () => {
     })
     .compileComponents();
   }));
-
   beforeEach(() => {
     fixture = TestBed.createComponent(GalleryComponent);
     component = fixture.componentInstance;
@@ -25,40 +25,46 @@ describe('ImageGalleryComponent', () => {
   let fixture: ComponentFixture<GalleryComponent>;
   //const service = new ImageService();
   beforeEach(() => {
-    //service = new ImageService();
-    //component = new GalleryComponent(service);
+    service = new ImageService();
+    component = new GalleryComponent(service);
 
-     // refine the test module by declaring the test component
-     TestBed.configureTestingModule({
-      declarations: [GalleryComponent],
-      providers: [ImageService]
-    });
-
-    fixture = TestBed.createComponent(GalleryComponent);
-    component = fixture.componentInstance;
-    service = TestBed.get(ImageService);
   });
 
   it('Componente creado', () => {
-    service = new ImageService();
-    component = new GalleryComponent(service);
+//    service = new ImageService();
+//    component = new GalleryComponent(service );
     expect(component).toBeTruthy();
   });
 
-   it('Todas las imagenes son perro', () => {
+   it('Todas las imagenes filtradas son perro', () => {
      //Sin terminar
      
-     
-     //component.ngOnChanges();
-     //FOR allimages
-     // expect(imagen.brand).toBe("perro"); 
-     //ENDFOR
-     component.filterBy = 'perro';
-     fixture.detectChanges();
+     component.filterBy = "perro";
      component.ngOnChanges();
-     for (let imagen of component.allImages){
+     for (let imagen of component.allImages ){
       expect(imagen.brand).toBe("perro"); 
      }
   });
+
+  it('Todas las imagenes filtradas son gato', () => {
+    //Sin terminar
+    
+    component.filterBy = "gato";
+    component.ngOnChanges();
+    for (let imagen of component.allImages ){
+     expect(imagen.brand).toBe("gato"); 
+    }
+ });
+
+ it('El Filtro perro debe corresponder al nombre del  boton Perro', () => {
+  //Sin terminar
+  
+  
+  component.ngOnChanges();
+  for (let imagen of component.allImages ){
+   expect(imagen.brand).toBe("gato"); 
+  }
+});
+
 
 });
