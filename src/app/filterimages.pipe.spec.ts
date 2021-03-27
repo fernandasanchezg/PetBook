@@ -41,7 +41,7 @@ describe('FilterimagesPipe', () => {
     
   });
 
-  it('No debe Filtrar el string "all" de la lista de  imagenes ,debe traer todas', () => {
+  it('Usando el string "all" de la lista de  imagenes ,debe traer todas', () => {
     const pipe = new FilterimagesPipe();
     const Imagesdelatils = [    
       { "id": 1, "brand": "perro", "url": "assets/images/perro1.jpg" },    
@@ -54,4 +54,16 @@ describe('FilterimagesPipe', () => {
     expect(imagenes.length).toBe(5); 
   });
 
+  it('No debe Filtrar el string "Ave" de la lista de  imagenes ,No debe traer datos', () => {
+    const pipe = new FilterimagesPipe();
+    const Imagesdelatils = [    
+      { "id": 1, "brand": "perro", "url": "assets/images/perro1.jpg" },    
+      { "id": 2, "brand": "perro", "url": "assets/images/perro2.jpg" },
+      { "id": 3, "brand": "gato", "url": "assets/images/gato1.jpg" },
+      { "id": 4, "brand": "gato", "url": "assets/images/gato2.jpeg" },
+      { "id": 5, "brand": "perro", "url": "assets/images/perro3.jpg" }
+    ]; 
+    let imagenes = pipe.transform(Imagesdelatils , "Ave");
+    expect(imagenes.length).toBe(0); 
+  });
 });

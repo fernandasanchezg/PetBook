@@ -40,3 +40,4 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.content span').textContent).toContain('pet-book app is running!');
   });
 });
+

@@ -15,7 +15,8 @@ import { ImageService } from './image.service';
     AppComponent,
     GalleryComponent,
     ImageDetailComponent,
-    FilterimagesPipe
+    FilterimagesPipe,
+    ImageService
   ],
   imports: [
     BrowserModule,
