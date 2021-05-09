@@ -29,6 +29,7 @@ describe('ImageService', () => {
     it('debe retornar indefinido si se busca una imagen con id que NO existe', () => {
       let imagene = service.getImage(100);
       expect(imagene).toEqual(undefined);
+      print();
     });
   });
 });
