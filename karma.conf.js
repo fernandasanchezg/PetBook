@@ -11,7 +11,7 @@ module.exports = function (config) {
       // enable/disable, default is true
       enabled: true,
       // enable/disable phantomjs support, default is true
-      usePhantomJS: false,
+      usePhantomJS: true,
       // use headless mode, for browsers that support it, default is false
       preferHeadless: true,
       // post processing of browsers list
@@ -51,14 +51,14 @@ module.exports = function (config) {
       require('karma-firefox-launcher'),
       require('karma-detect-browsers'), //Adicion Final
       require('karma-jasmine'),
-      //require('karma-chrome-launcher'),
+      require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma'),
       require('karma-junit-reporter')
     ],
     client: {
-      clearContext: true // leave Jasmine Spec Runner output visible in browser
+      clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     coverageIstanbulReporter: {
       dir: require('path').join(__dirname, './coverage'),
@@ -72,7 +72,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Firefox'],
+    browsers: ['Chrome'],
     singleRun: false,
     restartOnFileChange: true
   });
