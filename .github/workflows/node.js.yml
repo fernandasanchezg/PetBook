@@ -17,15 +17,12 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install dependencies
     - run: npm install  
-    - name: Install browsers
     - run: sudo apt-get -yqq install chromium-chromedriver
     - run: npm install chromedriver --chromedriver-force-download
     - run: sudo apt install chromium-chromedriver
     - run: npm install karma-detect-browsers --save-dev
     - run: npm install karma-firefox-launcher --save-dev
-    - name: Npm Test
     - run: npm ci
     - run: npm run build 
     - run: npm run test-ci
