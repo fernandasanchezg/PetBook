@@ -23,6 +23,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: sudo apt-get -yqq install chromium-chromedriver
+    - run: sudo apt install chromium-chromedriver
+    - run: npm install karma-detect-browsers --save-dev
+    - run: npm install karma-firefox-launcher --save-dev
     - run: npm ci
     - run: npm run build 
-    - run: npm run test --browsers=chromium
+    - run: npm run test 
