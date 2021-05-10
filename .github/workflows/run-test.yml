@@ -1,4 +1,4 @@
-name: Run tests
+name: Pipeline pet-book grupo6 Run tests
 
 on: [push]
 
