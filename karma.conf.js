@@ -6,6 +6,7 @@ process.env.CHROME_BIN = require('puppeteer').executablePath()
 module.exports = function (config) {
   config.set({
     basePath: '',
+    frameworks: ['detectBrowsers'], //Adicion
     customLaunchers:{
       HeadlessChrome:{
         base: 'ChromeHeadless',
@@ -13,7 +14,16 @@ module.exports = function (config) {
       }
     },
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
-    plugins: [
+    plugins: [ //Adicion inicial
+      'karma-chrome-launcher',
+      'karma-edge-launcher',
+      'karma-firefox-launcher',
+      'karma-ie-launcher',
+      'karma-safari-launcher',
+      'karma-safaritechpreview-launcher',
+      'karma-opera-launcher',
+      'karma-phantomjs-launcher',
+      'karma-detect-browsers', //Adicion Final
       require('karma-jasmine'),
       require('karma-chrome-launcher'),
       require('karma-jasmine-html-reporter'),
