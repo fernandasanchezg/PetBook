@@ -18,16 +18,18 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: Install dependencias    
-    - run: npm install  
+      run: npm install  
     - name: Install drivers
-      run: sudo apt-get -yqq install chromium-chromedriver
+      run: |
+           sudo apt-get -yqq install chromium-chromedriver
            npm install chromedriver --chromedriver-force-download
            sudo apt install chromium-chromedriver
            npm install karma-detect-browsers --save-dev
            npm install karma-firefox-launcher --save-dev
       
     - name: Build
-      run: npm ci
+      run: |
+           npm ci
            npm run build 
     - name: Test 
       run: npm run test-ci
