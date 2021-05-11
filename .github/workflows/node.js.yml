@@ -20,13 +20,14 @@ jobs:
     - name: Install dependencias    
     - run: npm install  
     - name: Install drivers
-    - run: sudo apt-get -yqq install chromium-chromedriver
-    - run: npm install chromedriver --chromedriver-force-download
-    - run: sudo apt install chromium-chromedriver
-    - run: npm install karma-detect-browsers --save-dev
-    - run: npm install karma-firefox-launcher --save-dev
-    - run: npm ci
+      run: sudo apt-get -yqq install chromium-chromedriver
+           npm install chromedriver --chromedriver-force-download
+           sudo apt install chromium-chromedriver
+           npm install karma-detect-browsers --save-dev
+           npm install karma-firefox-launcher --save-dev
+      
     - name: Build
-    - run: npm run build 
+      run: npm ci
+           npm run build 
     - name: Test 
-    - run: npm run test-ci
+      run: npm run test-ci
